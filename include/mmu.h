@@ -1,5 +1,5 @@
 #include <stdbool.h> 
-#include <utils.h>
+#include "utils.h"
 
 #define MEM_SIZE 0x10000
 #define NUM_REGISTERS 8
@@ -19,7 +19,9 @@
 BYTE read_next();
 WORD read_next_word();
 BYTE read(WORD addr);
+WORD read_word(WORD addr);
 void write(WORD addr, BYTE data);
+void write_word(WORD addr, WORD data);
 
 BYTE get_register(BYTE ix);
 void set_register(BYTE ix, BYTE val);
@@ -29,4 +31,5 @@ void set_16b_register(char ix1, char ix2, WORD data);
 
 bool get_flag(BYTE ix);
 void set_flag(BYTE ix);
+void set_flag_to(BYTE ix, bool to);
 void unset_flag(BYTE ix);

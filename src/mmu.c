@@ -1,7 +1,6 @@
 #include <stdbool.h> 
-#include <stdbool.h> 
 #include <stdio.h>
-#include <mmu.h>
+#include "../include/mmu.h"
 
 BYTE mem[MEM_SIZE];
 BYTE registers[NUM_REGISTERS];
@@ -11,6 +10,11 @@ WORD pc = 0;
 // Read a byte from memory
 BYTE read(WORD addr) {
     return mem[addr];
+}
+
+// Read a word from memory
+WORD read_word(WORD addr) {
+    return bytes_to_word(mem[addr], mem[addr + 1]);
 }
 
 // Read the byte at the current memory address and increment
@@ -26,6 +30,10 @@ WORD read_next_word() {
 }
 
 void write(WORD addr, BYTE data) {
+    mem[addr] = data;
+}
+
+void write_word(WORD addr, WORD data) {
     mem[addr] = data;
 }
 
@@ -54,6 +62,14 @@ bool get_flag(BYTE ix) {
 
 void set_flag(BYTE ix) {
     registers[F] |= 1 << ix;
+}
+
+void set_flag_to(BYTE ix, bool to) {
+    if (to) {
+        set_flag(ix);
+    } else {
+        unset_flag(ix);
+    }
 }
 
 void unset_flag(BYTE ix) {

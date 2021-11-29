@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <cpu.h>
-#include <mmu.h>
+#include "../include/cpu.h"
+#include "../include/mmu.h"
 
 #define SCREEN_WIDTH 144
 #define SCREEN_HEIGHT 160

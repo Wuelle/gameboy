@@ -1,2 +1,0 @@
-int execute_next();
-
