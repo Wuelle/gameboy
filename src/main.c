@@ -5,7 +5,6 @@
 #define SCREEN_WIDTH 144
 #define SCREEN_HEIGHT 160
 
-
 int main() {
     // // Read rom files
     // FILE *boot_rom = fopen("roms/boot.gb", "r");
