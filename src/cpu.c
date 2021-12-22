@@ -52,6 +52,9 @@ struct Processor {
     };
 }
 
+BYTE read_next();
+WORD read_next_word();
+
 bool get_flag(Processor* cpu, BYTE ix) {
     return (cpu->F >> ix) & 1 == 1;
 }
